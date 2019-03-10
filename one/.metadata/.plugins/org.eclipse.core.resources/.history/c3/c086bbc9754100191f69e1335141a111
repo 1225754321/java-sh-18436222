@@ -1,0 +1,130 @@
+package com.qqcwathlient.view;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.GridLayout;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class FrendList extends JFrame implements ActionListener,MouseListener{
+	CardLayout cardLayout;
+	
+	JPanel ym1;
+	JButton hy;
+	JPanel mblb;
+	JPanel mb1;
+	JButton msr,hmd;
+	JScrollPane had;
+	static final int haoyoulb=51;
+	JLabel[] haoyou=new JLabel[haoyoulb];
+	
+	JPanel ym2;
+	JButton hmd1;
+	JPanel mblb1;
+	JPanel mb2;
+	JButton msr1,hy1;
+	JScrollPane had1;
+	static final int haoyoulb1=21;
+	JLabel[] haoyou1=new JLabel[haoyoulb1];
+	
+		
+	public FrendList(){
+		//页面一
+		/*ym1=new JPanel(new BorderLayout());
+		
+		hy=new JButton("我的好友");
+		ym1.add(hy,"North");
+		
+		mblb=new JPanel(new GridLayout(haoyoulb-1,1));
+		for (int i=1;i<haoyoulb;i++){
+			haoyou[i]=new JLabel(i+"",new ImageIcon("images/QQ.jpg"), JLabel.LEFT);
+			haoyou[i].addMouseListener(this);
+			mblb.add(haoyou[i]);
+		}
+		had=new JScrollPane(mblb);
+		ym1.add(had1);
+		
+		mb1=new JPanel(new GridLayout(2,1));
+		msr=new JButton("陌生人");hmd=new JButton("黑名单");
+		mb1.add(msr);mb1.add(hmd);
+		ym1.add(mb1,"South");*/
+		
+		
+		
+		
+		//页面二
+		ym2=new JPanel(new BorderLayout());
+		
+		hmd1=new JButton("黑名单");
+		ym2.add(hmd1,"South");
+		
+		mblb1=new JPanel(new GridLayout(haoyoulb1-1,1));
+		for (int i=1;i<haoyoulb1;i++){
+			haoyou1[i]=new JLabel(i+"",new ImageIcon("images/QQ2.jpg"), JLabel.LEFT);
+			haoyou1[i].addMouseListener(this);
+			mblb1.add(haoyou1[i]);
+		}
+		had1=new JScrollPane(mblb1);
+		ym2.add(had1);
+		
+		mb2=new JPanel(new GridLayout(2,1));
+		hy1=new JButton("我的好友");msr1=new JButton("陌生人");
+		mb2.add(hy1);mb2.add(msr1);
+		ym2.add(mb2,"North");
+		
+		
+	
+	
+		cardLayout=new CardLayout();
+		this.setLayout(cardLayout);
+		
+		//this.add(ym1,"1");
+		this.add(ym2,"2");
+		this.setSize(280,500);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		FrendList frendList=new FrendList();
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

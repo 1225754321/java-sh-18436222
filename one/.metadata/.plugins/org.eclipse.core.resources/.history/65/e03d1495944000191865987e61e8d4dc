@@ -1,0 +1,87 @@
+package com.qqcwathlient.view;
+
+import java.awt.CardLayout;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class FrendList extends JFrame implements ActionListener,MouseListener{
+	CardLayout cardLayout;
+	
+	JPanel ym1;
+	JButton hy;
+	JPanel mb1;
+	JButton msr,hmd;
+	JScrollPane had;
+	static final int haoyoulb=51;
+	JLabel[] haoyou=new JLabel[haoyoulb];
+	
+	JPanel ym2;
+	JButton hy1,;
+	JPanel mb2;
+	JButton msr1,hmd1;
+	JScrollPane had1;
+	static final int haoyoulb1=51;
+	JLabel[] haoyou1=new JLabel[haoyoulb1];
+	
+		
+	public FrendList(){
+		ym1=new JPanel();
+		this.add(ym1);
+		
+		hy=new JButton("");
+		ym2.add(hy,"North");
+		
+		
+		
+		
+	
+	
+	
+		this.setSize(280,500);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		FrendList frendList=new FrendList();
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

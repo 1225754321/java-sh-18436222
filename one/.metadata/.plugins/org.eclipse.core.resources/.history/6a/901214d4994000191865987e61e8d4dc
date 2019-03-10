@@ -1,0 +1,105 @@
+package com.qqcwathlient.view;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.GridLayout;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class FrendList extends JFrame implements ActionListener,MouseListener{
+	CardLayout cardLayout;
+	
+	JPanel ym1;
+	JButton hy;
+	JPanel mb1;
+	JButton msr,hmd;
+	JScrollPane had;
+	static final int haoyoulb=51;
+	JLabel[] haoyou=new JLabel[haoyoulb];
+	
+	JPanel ym2;
+	JButton hy1;
+	JPanel mb2;
+	JButton msr1,hmd1;
+	JScrollPane had1;
+	static final int haoyoulb1=51;
+	JLabel[] haoyou1=new JLabel[haoyoulb1];
+	
+		
+	public FrendList(){
+		ym1=new JPanel(new BorderLayout());
+		
+		hy=new JButton("我的好友");
+		ym1.add(hy,"North");
+		
+		had1=new JScrollPane();
+		for (int i=1;i<haoyoulb;i++){
+			haoyou1[i]=new JLabel(i+"",new ImageIcon("images/QQ.jpg"));
+			haoyou1[i].addMouseListener(this);
+			had1.add(haoyou1[i]);
+		}
+		ym1.add(had1);
+		
+		mb1=new JPanel(new GridLayout(2,1));
+		msr=new JButton("陌生人");hmd=new JButton("黑名单");
+		mb1.add(msr);mb1.add(hmd);
+		ym1.add(mb1,"South");
+		
+		
+		
+		
+	
+	
+		cardLayout=new CardLayout();
+		this.setLayout(cardLayout);
+		
+		this.add(ym1);
+		
+		this.setSize(280,500);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		FrendList frendList=new FrendList();
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
