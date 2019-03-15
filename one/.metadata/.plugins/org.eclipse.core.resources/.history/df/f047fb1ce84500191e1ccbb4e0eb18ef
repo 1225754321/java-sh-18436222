@@ -1,0 +1,44 @@
+package com.qqcwathlient.view;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class FriendChat extends JFrame implements ActionListener{
+	
+	JPanel jp;
+	JTextArea jta;
+	JButton jb;
+	
+	
+	public FriendChat() {
+		
+		
+		
+		
+		
+		
+		jp=new JPanel();
+		jb=new JButton("·¢ËÍ");
+		jta=new JTextArea();
+		this.setForeground(Color.red);
+		jp.add(jta);jp.add(jta);
+		this.add(jp);
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		FriendChat friendChat=new FriendChat();
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

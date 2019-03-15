@@ -28,8 +28,11 @@ public class FrendList extends JFrame implements ActionListener,MouseListener{
 	static final int haoyoulb1=21;
 	JLabel[] haoyou1=new JLabel[haoyoulb1];
 	
+	String userName;
+	
+	public FrendList(String userName){
+		this.userName=userName;
 		
-	public FrendList(){
 		//页面一
 		ym1=new JPanel(new BorderLayout());
 		
@@ -86,13 +89,14 @@ public class FrendList extends JFrame implements ActionListener,MouseListener{
 		this.add(ym1,"1");
 		this.add(ym2,"2");
 		this.setSize(280,500);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle(this.userName+"的好友列表");
+//		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
-		
+		this.setLocationRelativeTo(null);
 	}
 	
 	public static void main(String[] args) {
-		FrendList frendList=new FrendList();
+		//FrendList frendList=new FrendList();
 
 	}
 
@@ -109,7 +113,12 @@ public class FrendList extends JFrame implements ActionListener,MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getClickCount()==2) {
+			JLabel jlb1=(JLabel)e.getSource();
+			String receiver=jlb1.getText();
+			new FriendChat(this.userName,receiver);
+			
+		}
 		
 	}
 

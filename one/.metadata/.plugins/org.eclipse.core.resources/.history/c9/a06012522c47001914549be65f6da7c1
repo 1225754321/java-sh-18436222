@@ -1,0 +1,27 @@
+package com.qqchatserver.view;
+
+import javax.swing.*;
+
+public class ChatServer {
+	
+	JButton jb1,jb2;
+	JPanel jp;
+	
+	public ChatServer() {
+		jb1=new
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	public static void main(String[] args) {
+		ChatServer chatServer=new ChatServer();
+
+	}
+
+}

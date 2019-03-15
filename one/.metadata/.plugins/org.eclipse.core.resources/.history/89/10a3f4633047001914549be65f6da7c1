@@ -1,0 +1,41 @@
+package com.qqchatserver.view;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class ChatServer extends JFrame implements ActionListener{
+	
+	private static final long serialVersionUID = 1L;
+	JButton jb1,jb2;
+	JPanel jp;
+	
+	public ChatServer(){
+		jb1=new JButton("¿ªÆô¼à¿Ø");jb2=new JButton("¹Ø±Õ¼à¿Ø");
+		jp=new JPanel();
+		jp.add(jb1);jp.add(jb2);
+		this.add(jp);
+		
+		
+		
+		
+		this.setSize(350,240);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("¿ØÖÆÊÒ");
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+	
+		
+	}
+	public static void main(String[] args) {
+		ChatServer chatServer=new ChatServer();
+
+	}
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

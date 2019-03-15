@@ -1,0 +1,26 @@
+package com.qqchatserver.controller;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class StartServer {
+	ServerSocket ss;
+	public StartServer() {
+		try {
+			ss=new ServerSocket(3456);
+			System.out.println("   asff");
+			Socket s=ss.accept();//接受客户端连接请求
+			System.out.println("sadfa");
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+}
