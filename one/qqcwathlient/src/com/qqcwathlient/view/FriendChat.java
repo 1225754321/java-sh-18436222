@@ -3,8 +3,13 @@ package com.qqcwathlient.view;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 import javax.swing.*;
+
+import com.qqchat.model.Message;
+import com.qqchatclient.controller.ClientConnect;
 
 public class FriendChat extends JFrame implements ActionListener{
 	
@@ -20,9 +25,13 @@ public class FriendChat extends JFrame implements ActionListener{
 	JTextField jtx;
 	JButton jb;
 	
+	String sender;
+	String receiver;
+	
 	
 	public FriendChat(String sender,String receiver) {
-		
+		this.sender=sender;
+		this.receiver=receiver;
 		//zhongbu
 		jta=new JTextArea();
 		jta.setForeground(Color.red);
@@ -57,6 +66,21 @@ public class FriendChat extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent args) {
 		if(args.getSource()==jb) jta.append(jtx.getText()+"\r\n");
+		
+		Message mess=new Message();
+		mess.setSender(sender);
+		mess.setReceiver(receiver);
+		mess.setContent(jtx.getText());
+		mess.setMessageType(Message.message_common);
+		ObjectOutputStream oos;
+		
+		 try {
+			oos = new ObjectOutputStream(ClientConnect.s.getOutputStream());
+			oos.writeObject(mess);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

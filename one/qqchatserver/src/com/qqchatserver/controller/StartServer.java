@@ -6,21 +6,44 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import com.qqchat.model.Message;
 import com.qqchat.model.User;
 
 public class StartServer {
 	ServerSocket ss;
+	String userName;
+	String passWord;
 	public StartServer() {
 		try {
 			ss=new ServerSocket(3456);
 			System.out.println("服务器已经启动，监听3456端口");
-			Socket s=ss.accept();//接受客户端连接请求
-			System.out.println("连接成功："+s);
+			while(true){
+				Socket s=ss.accept();//接受客户端连接请求
+				System.out.println("连接成功："+s);
+				
+				ObjectInputStream ois=new ObjectInputStream(s.getInputStream());
+				User user=(User)ois.readObject();
+				userName=user.getUserName();
+				passWord=user.getPassWord();
+				System.out.println(passWord);
+				System.out.println(userName);
+				
+				Message mess=new Message();
+				mess.setSender("Server");
+				mess.setReceiver("userName");
+				if(passWord.equals("123456")){
+					mess.setMessageType("1");				
+					
+				}else{
+					mess.setMessageType("0");
+				}
+				ObjectOutputStream oos=new ObjectOutputStream(s.getOutputStream());
+				oos.writeObject(mess);
+				
+				new ServerReceiverThread(s).start();
+				
+			}
 			
-			ObjectInputStream ois=new ObjectInputStream(s.getInputStream());
-			User user=(User)ois.readObject();
-			System.out.println(user.getUserName());
-			System.out.println(user.getPassWord());
 			
 		} catch (IOException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block

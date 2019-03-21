@@ -1,0 +1,5 @@
+package com.qqchat.model;
+
+public interface MessageType {
+
+}

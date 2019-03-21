@@ -2,6 +2,7 @@ package com.qqcwathlient.view;
 
 import javax.swing.*;
 
+import com.qqchat.model.Message;
 import com.qqchat.model.User;
 import com.qqchatclient.controller.ClientConnect;
 
@@ -86,9 +87,6 @@ public class ClientLogin extends JFrame implements ActionListener{
 		this.setLocationRelativeTo(null);
 		
 	}
-
-	
-
 	public static void main(String[] args) {
 		ClientLogin clientLogin=new ClientLogin();
 
@@ -106,10 +104,15 @@ public class ClientLogin extends JFrame implements ActionListener{
 			user.setUserName(userName);
 			user.setPassWord(passWord);
 			
-			new ClientConnect().loginValidate(user);
+			Message mess=new ClientConnect().loginValidate(user);
+			if(mess.getMessageType().equals("1")){
+				new FrendList(userName);
+				this.dispose();
+												
+			}else{
+			JOptionPane.showMessageDialog(this,"√‹¬Î¥ÌŒÛ");
+			}
 			
-			new FrendList(userName);
-			this.dispose();
 		}
 		
 	}
