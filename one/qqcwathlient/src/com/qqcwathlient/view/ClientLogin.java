@@ -1,6 +1,7 @@
 package com.qqcwathlient.view;
 
 import javax.swing.*;
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import com.qqchat.model.Message;
 import com.qqchat.model.User;
@@ -10,6 +11,8 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 public class ClientLogin extends JFrame implements ActionListener{
 	
@@ -116,5 +119,7 @@ public class ClientLogin extends JFrame implements ActionListener{
 		}
 		
 	}
+	
+	
 
 }

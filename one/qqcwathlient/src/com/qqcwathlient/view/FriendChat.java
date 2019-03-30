@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ import javax.swing.*;
 import com.qqchat.model.Message;
 import com.qqchatclient.controller.ClientConnect;
 
-public class FriendChat extends JFrame implements ActionListener{
+public class FriendChat extends JFrame implements ActionListener,Runnable{
 	
 	
 	//zhongbu
@@ -80,6 +81,23 @@ public class FriendChat extends JFrame implements ActionListener{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+	}
+	public void run() {
+		ObjectInputStream ois;
+		while(true){
+			try {
+				ois = new ObjectInputStream(ClientConnect.s.getInputStream());
+				Message mess=(Message)ois.readObject();
+				String showMessage=mess.getSender()+"¶Ô"+mess.getReceiver()+"Ëµ£º"+mess.getContent();
+				System.out.println(showMessage);
+				jta.append(showMessage+"\r\n");
+				} catch (IOException | ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
 		}
 		
 	}

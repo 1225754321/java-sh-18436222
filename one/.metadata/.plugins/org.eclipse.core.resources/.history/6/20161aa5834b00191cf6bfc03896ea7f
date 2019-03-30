@@ -1,5 +1,0 @@
-package com.qqchatserver.controller;
-
-public class ServerReceiverThread {
-
-}

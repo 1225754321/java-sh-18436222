@@ -5,11 +5,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
 
 import com.qqchat.model.Message;
 import com.qqchat.model.User;
 
 public class StartServer {
+	public static HashMap hmSocket=new HashMap<String,Socket>();
+	
 	ServerSocket ss;
 	String userName;
 	String passWord;
@@ -40,7 +43,12 @@ public class StartServer {
 				ObjectOutputStream oos=new ObjectOutputStream(s.getOutputStream());
 				oos.writeObject(mess);
 				
-				new ServerReceiverThread(s).start();
+				if(passWord.equals("123456")){
+					hmSocket.put(userName, s);
+					new ServerReceiverThread(s).start();		
+					
+				}
+				
 				
 			}
 			
