@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/qqchatserver/src/com/qqchatserver/view/ChatServer.java"/>
+<listEntry value="/yychatserver/src/com/yychatserver/view/ChatServer.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<booleanAttribute key="org.eclipse.jdt.launching.ATTR_EXCLUDE_TEST_CODE" value="true"/>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.qqchatserver.view.ChatServer"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="qqchatserver"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.yychatserver.view.ChatServer"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="yychatserver"/>
 </launchConfiguration>
