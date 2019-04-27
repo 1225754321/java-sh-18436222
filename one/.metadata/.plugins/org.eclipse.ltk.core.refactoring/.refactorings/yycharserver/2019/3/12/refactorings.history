@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Message.java&apos; to &apos;chatclient/src/com.yychat.model&apos;&#x0D;&#x0A;- Original project: &apos;yycharserver&apos;&#x0D;&#x0A;- Destination element: &apos;chatclient/src/com.yychat.model&apos;&#x0D;&#x0A;- Original element: &apos;com.yychat.model.Message.java&apos;" description="Copy compilation unit" destination="=chatclient/src&lt;com.yychat.model" element1="/src&lt;com.yychat.model{Message.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1553045525621" units="1" version="1.0"/>
+</session>

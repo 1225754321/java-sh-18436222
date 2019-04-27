@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.yychat.model&apos; to &apos;yycharserver/src&apos;&#x0D;&#x0A;- Original project: &apos;chatclient&apos;&#x0D;&#x0A;- Destination element: &apos;yycharserver/src&apos;&#x0D;&#x0A;- Original element: &apos;chatclient/src/com.yychat.model&apos;" description="Copy package" destination="=yycharserver/src" element1="/src&lt;com.yychat.model" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1552470584894" version="1.0"/>
+</session>

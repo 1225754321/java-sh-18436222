@@ -1,0 +1,49 @@
+package com.yychatserver.controller;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.util.Iterator;
+import java.util.Set;
+
+import com.yychat.model.Message;
+
+public class ServerReceiverThread extends Thread{
+	Socket s;
+         public ServerReceiverThread(Socket s){
+        	 this.s=s;
+         } 
+         public void run(){
+        	 ObjectInputStream ois;
+        	 ObjectOutputStream oos;
+        	 Message mess;
+        	 while(true){
+        	 try{
+        	 ois=new ObjectInputStream(s.getInputStream());
+        	 mess=(Message)ois.readObject();
+        	 System.out.println(mess.getSender()+"对"+mess.getReceiver()+"说:"+mess.getContent());
+        	 
+        	 Socket s1=(Socket)StartServer.hmSocket.get(mess.getReceiver());
+        	 oos =new ObjectOutputStream(s1.getOutputStream());
+        	 oos.writeObject(mess);
+        	 
+        	 if(mess.getMessageType().equals(Message.message_Friendlist)){
+        		 Set friendSet=StartServer.hmSocket.keySet();
+        		 Iterator it=friendSet.iterator();
+        		 String friendName;
+        		 String friendString=" ";
+        		 while(it.hasNext()){
+        			 friendName=(String)it.next();
+        			 if(!friendName.equals(mess.getSender()));
+        			   friendString=friendString+friendName+" ";       			   
+        		 }
+        	 }
+        	 
+        	 System.out.println("服务器转发聊天信息了："+mess.getSender()+"对"+mess.getReceiver()+"说:"+mess.getContent());
+        	    }catch (IOException | ClassNotFoundException e){
+        	    	e.printStackTrace();
+        	    }
+        	 }
+         }
+}

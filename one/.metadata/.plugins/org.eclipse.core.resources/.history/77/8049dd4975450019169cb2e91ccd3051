@@ -1,0 +1,16 @@
+package com.yychatclient.control;
+
+import java.io.IOException;
+import java.net.Socket;
+
+public class ClientConnect {
+	     Socket s;
+          public ClientConnect(){
+        	try {
+				Socket s=new Socket("127.0.0.1",3456);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+          }
+}

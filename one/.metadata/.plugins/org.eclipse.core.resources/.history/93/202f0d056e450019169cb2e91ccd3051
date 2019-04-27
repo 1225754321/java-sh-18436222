@@ -1,0 +1,5 @@
+package com.yychatclient.control;
+
+public class ClientConnect {
+
+}
