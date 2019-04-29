@@ -42,45 +42,40 @@ public class StartServer {
                 	    passWord=user.getPassWord();	
                 		System.out.println(userName);
                 		System.out.println(passWord);
-                		
-                		//实现密码验证功能
                 		//使用数据库进行用户身份认证
         				//1、加载驱动程序
         				Class.forName("com.mysql.jdbc.Driver");
         				System.out.println("已经加载了数据库驱动！");
         				//2、连接数据库
         				String url="jdbc:mysql://127.0.0.1:3306/yychat";
+        				System.out.println(url);
         				//中文用户名必须用下面的url
         				//String url="jdbc:mysql://127.0.0.1:3306/yychat?useUnicode=true&characterEncoding=UTF-8";
         				String dbUser="root";
         				String dbPass="";				
+        				Connection conn=DriverManager.getConnection(url,dbUser,dbPass);
         				
+        				//3、创建PreparedStatement对象，用来执行SQL语句
+        				String user_Login_Sql="select * from user where username=? and password=?";
+        				PreparedStatement ptmt=conn.prepareStatement(user_Login_Sql);
+        				ptmt.setString(1, userName);
+        				ptmt.setString(2, passWord);
         				
         				//4、执行查询，返回结果集
-        				ResultSet rs;
-						try {
-							Connection conn=DriverManager.getConnection(url,dbUser,dbPass);
-	        				
-	        				//3、创建PreparedStatement对象，用来执行SQL语句
-	        				String user_Login_Sql="select * from user where username=? and password=?";
-	        				PreparedStatement ptmt=conn.prepareStatement(user_Login_Sql);
-	        				ptmt.setString(1, userName);
-	        				ptmt.setString(2, passWord);
-							rs = ptmt.executeQuery();
-							boolean loginSuccess=rs.next();
-//							System.out.println("aaaaaaaaaaaaaa"+loginSuccess);
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						
-        				//5、根据结果集来判断是否能登录
+        				ResultSet rs=ptmt.executeQuery();
         				
+        				//5、根据结果集来判断是否能登录
+        				boolean loginSuccess=rs.next();
+                		//实现密码验证功能
+						
 
+    //6、在yychatserver项目中添加数据库驱动：Build Path->Add External JARs->mysql-connector-java-5.1.6-bin
+		//创建不了				
                 		mess=new Message();//验证操作
             			mess.setSender("Server");
             			mess.setReceiver(userName);
-                		if(true){//对象比较                		
+                		//if(user.getPassWord().equals("123456")){//对象比较   
+            			if(loginSuccess){
                 			mess.setMessageType(Message.message_LoginSuccess);//"1"为验证通过
                 			
                 		}else{
@@ -90,7 +85,8 @@ public class StartServer {
                 		//oos.writeObject(mess);
                 		sendMessage(s,mess);
                 		//
-                		if(user.getPassWord().equals("123456")){
+                		//if(user.getPassWord().equals("123456")){
+                		if(loginSuccess){
                 			mess.setMessageType(Message.message_Newpy);
                 			mess.setSender("Server");
                 			mess.setContent(userName);
@@ -113,7 +109,10 @@ public class StartServer {
                 		e.printStackTrace();//处理异常
                 	}catch (ClassNotFoundException e){
                 		e.printStackTrace();
-                	}
+                	} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
                 	
                 }
                 private void sendMessage(Socket s,Message mess) throws IOException {			
