@@ -77,6 +77,17 @@ public class StartServer {
                 		//if(user.getPassWord().equals("123456")){//对象比较   
             			if(loginSuccess){
                 			mess.setMessageType(Message.message_LoginSuccess);//"1"为验证通过
+                			String friend_Relation_Sql="select slaveuser from relation where majoruser=? and relationtype=1";
+                			ptmt=conn.prepareStatement(friend_Relation_Sql);
+                			ptmt.setString(1,userName);
+                			rs=ptmt.executeQuery();
+                			String friendString="";
+                			while(rs.next()) {
+                				
+                				friendString=friendString+rs.getString("slaveuser")+" ";
+                			}
+                			mess.setContent(friendString);
+                			System.out.println(userName+"friend:"+friendString);
                 			
                 		}else{
                 			mess.setMessageType(Message.message_LoginFailure);//"0"为验证不通过                			
