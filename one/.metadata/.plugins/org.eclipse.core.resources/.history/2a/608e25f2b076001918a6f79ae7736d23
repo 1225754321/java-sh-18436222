@@ -48,25 +48,16 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{
 		myFriendJButton=new JButton("ÎÒµÄºÃÓÑ");
 		myFriendPanel.add(myFriendJButton,"North");
 		
-		String[] friendName=friendString.split(" ");
-		int count=friendName.length; 
-		myFriendListJPanel=new JPanel(new GridLayout(count,1));
+		myFriendListJPanel=new JPanel(new GridLayout(FRIENDCOUNT-1,1));
 		
-		for(int i=0;i<count;i++)
+		for(int i=1;i<FRIENDCOUNT;i++)
 		{			
-			myFriendJLabel[i]=new JLabel(friendName[i]+"",new ImageIcon("images/yy4.gif"),JLabel.LEFT);
-//			myFriendJLabel[i].setEnabled(false);
+			myFriendJLabel[i]=new JLabel(i+"",new ImageIcon("images/yy4.gif"),JLabel.LEFT);
+			myFriendJLabel[i].setEnabled(false);
 			myFriendJLabel[i].addMouseListener(this);
 		    myFriendListJPanel.add(myFriendJLabel[i]);
 		}
-//		for(int i=1;i<FRIENDCOUNT;i++)
-//		{			
-//			myFriendJLabel[i]=new JLabel(i+"",new ImageIcon("images/yy4.gif"),JLabel.LEFT);
-//			myFriendJLabel[i].setEnabled(false);
-//			myFriendJLabel[i].addMouseListener(this);
-//		    myFriendListJPanel.add(myFriendJLabel[i]);
-//		}
-//		myFriendJLabel[Integer.parseInt(userName)].setEnabled(true);
+		myFriendJLabel[Integer.parseInt(userName)].setEnabled(true);
 		myFriendJScrollPane=new JScrollPane(myFriendListJPanel);
 		myFriendPanel.add(myFriendJScrollPane);
 		

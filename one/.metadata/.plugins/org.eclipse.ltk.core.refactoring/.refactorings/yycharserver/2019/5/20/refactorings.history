@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;StartServer.java&apos; to &apos;yycharserver/src/com.yychatserver.controller&apos;&#x0D;&#x0A;- Original project: &apos;yycharserver&apos;&#x0D;&#x0A;- Destination element: &apos;yycharserver/src/com.yychatserver.controller&apos;&#x0D;&#x0A;- Original element: &apos;com.yychatserver.controller.StartServer.java&apos;" description="Copy compilation unit" destination="/src&lt;com.yychatserver.controller" element1="/src&lt;com.yychatserver.controller{StartServer.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1557913162715" units="1" version="1.0"/>
+</session>

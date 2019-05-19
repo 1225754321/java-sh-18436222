@@ -118,20 +118,19 @@ public class ClientLogin extends JFrame implements ActionListener{
 			Message mess=new ClientConnect().loginValidateFromDB(user);
 			if(mess.getMessageType().equals(Message.message_LoginSuccess)) {
 				String friendString=mess.getContent();
-//				FriendList friendlist=new FriendList(userName);
-				FriendList friendlist=new FriendList(userName,friendString);
+				FriendList friendlist=new FriendList(userName);
 				hmFriendlist.put(userName,friendlist);
 				
 				
-				Message mess1=new Message();
-				mess1.setSender(userName);
-				mess1.setReceiver("Server");
-				mess1.setMessageType(Message.message_Friendlist);
+				Message mess=new Message();
+				mess.setSender(userName);
+				mess.setReceiver("Server");
+				mess.setMessageType(Message.message_Friendlist);
 				Socket s=(Socket)ClientConnect.hmSocket.get(userName);
 				ObjectOutputStream oos;
 				try{
 					oos=new ObjectOutputStream(s.getOutputStream());
-					oos.writeObject(mess1);
+					oos.writeObject(mess);
 				}catch (IOException e1){
 					e1.printStackTrace();
 				}

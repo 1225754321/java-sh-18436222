@@ -118,8 +118,7 @@ public class ClientLogin extends JFrame implements ActionListener{
 			Message mess=new ClientConnect().loginValidateFromDB(user);
 			if(mess.getMessageType().equals(Message.message_LoginSuccess)) {
 				String friendString=mess.getContent();
-//				FriendList friendlist=new FriendList(userName);
-				FriendList friendlist=new FriendList(userName,friendString);
+				FriendList friendlist=new FriendList(userName);
 				hmFriendlist.put(userName,friendlist);
 				
 				
