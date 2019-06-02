@@ -5,6 +5,16 @@ import java.io.Serializable;
 public class User implements Serializable{
 	private String userName;
     private String passWord;
+    
+    private String userMessageType;
+    
+   	public String getUserMessageType() {
+   		return userMessageType;
+   	}
+   	public void setUserMessageType(String userMessageType) {
+   		this.userMessageType = userMessageType;
+   	}
+    
 	public String getUserName() {
 		return userName;
 	}

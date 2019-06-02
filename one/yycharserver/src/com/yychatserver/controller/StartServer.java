@@ -42,8 +42,22 @@ public class StartServer {
                 	    passWord=user.getPassWord();	
                 		System.out.println(userName);
                 		System.out.println(passWord);
+                		if(user.getUserMessageType().equals("USER_REGISTER")) {
+                			boolean seekUserResult=YychatDbUtil.seekUser(userName);
+                			mess=new Message();//验证操作
+                			mess.setSender("Server");
+                			mess.setReceiver(userName);
+                			if(seekUserResult) {
+                				mess.setMessageType(Message.message_RegisterFailure);
+                			}else {
+                				YychatDbUtil.addUser(userName,passWord);
+                				mess.setMessageType(Message.message_RegisterSuccess);
+                			}
+                			sendMessage(s,mess);
+                			s.close();
+                		}
                 		//使用数据库进行用户身份认证
-        				
+        				if(user.getUserMessageType().equals("USER_LOGIN")) {
                 		boolean loginSuccess=YychatDbUtil.loginValidate(userName,passWord);
                 		
                 		mess=new Message();//验证操作
@@ -81,7 +95,9 @@ public class StartServer {
                 			
                 			hmSocket.put(userName, s);                		
                 		new ServerReceiverThread(s).start();
-                	}
+                	
+                		}
+                		}
                 		}
                 	}catch(IOException e){
                 		e.printStackTrace();//处理异常

@@ -90,6 +90,7 @@ public class ClientLogin extends JFrame implements ActionListener{
 		jp1.add(jb1);jp1.add(jb2);jp1.add(jb3);
 		this.add(jp1,"South");
 		jb1.addActionListener(this);
+		jb2.addActionListener(this);
 		
 		this.setSize(350,240);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -104,6 +105,24 @@ public class ClientLogin extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==jb2) {
+			String userName = jtf1.getText().trim();
+			String passWord=new String(jpf1.getPassword());
+			//创建User对象
+			User user=new User();//对象放在堆内存，引用变量放在线内存
+			user.setUserName(userName);
+			user.setPassWord(passWord);
+			user.setUserMessageType("USER_REGISTER");
+			
+			boolean registerSuccess=new ClientConnect().registerUserIntoDB(user);
+			if(registerSuccess){
+				JOptionPane.showMessageDialog(this,"注册成功");
+			}else {
+				JOptionPane.showMessageDialog(this,"注册失败！重复的用户名。");
+			}
+
+		
+		}
 		if(e.getSource()==jb1) {
 			String userName = jtf1.getText().trim();
 			String passWord=new String(jpf1.getPassword());
@@ -111,6 +130,7 @@ public class ClientLogin extends JFrame implements ActionListener{
 			User user=new User();//对象放在堆内存，引用变量放在线内存
 			user.setUserName(userName);
 			user.setPassWord(passWord);
+			user.setUserMessageType("USER_LOGIN");
 			
 			//boolean loginSuccess=new ClientConnect().loginValidate(user);
 			//if(loginSuccess){

@@ -48,6 +48,31 @@ public class ClientConnect {
 //			}
 //        	   return loginsuccess;
 //           }
+      	public boolean registerUserIntoDB(User user) {
+      		boolean registerSuccess=false;
+//			输入输出流对象,发送对象
+     	   //字节输出流对象包装，对象输出流对象
+//     	   boolean loginsuccess=false;
+     	   ObjectOutputStream oos;
+     	   ObjectInputStream ois;
+     	   Message mess=null;
+			try{
+     	   oos=new ObjectOutputStream(s.getOutputStream());
+     	   oos.writeObject(user);
+     	   
+     	   ois=new ObjectInputStream(s.getInputStream());
+     	   mess=(Message)ois.readObject();
+     	   
+     	   if(mess.getMessageType().equals(Message.message_RegisterSuccess)){
+     		  registerSuccess=true;
+     		 s.close();
+     	   }
+     	   
+     	   }catch (IOException | ClassNotFoundException e){
+     		   e.printStackTrace();
+			}
+     	   return registerSuccess;
+		}
 		public Message loginValidateFromDB(User user) {
 //			输入输出流对象,发送对象
      	   //字节输出流对象包装，对象输出流对象
