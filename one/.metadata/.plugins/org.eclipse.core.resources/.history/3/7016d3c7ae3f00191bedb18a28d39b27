@@ -1,9 +1,0 @@
-package com.chatclient.view;
-
-public class FriendList {
-
-	public FriendList() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

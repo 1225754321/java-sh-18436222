@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/chatclient/src/com/chatclient/view/ClientLogin.java"/>
+<listEntry value="/yychatclient/src/com/yychatclient/view/ClientLogin.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.chatclient.view.ClientLogin"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="chatclient"/>
+<booleanAttribute key="org.eclipse.jdt.launching.ATTR_EXCLUDE_TEST_CODE" value="true"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.yychatclient.view.ClientLogin"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="yychatclient"/>
 </launchConfiguration>
